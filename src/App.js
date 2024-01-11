@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Banner from './Components/Banner/Banner';
+import NavBar from './Components/NavBar/NavBar';
+import RowPost from './Components/RowPost/RowPost';
+import { API_KEY} from "./constants/constants";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+      <Banner/>
+      <RowPost url={`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213`} title='Netflix Originals'/>
+      <RowPost url ={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=28`} title='Action' isSmall />
     </div>
   );
 }
